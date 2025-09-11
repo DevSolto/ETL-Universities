@@ -6,8 +6,5 @@ extract = Extract()
 load = Load()
 
 brazil = extract.extract_data("Brazil")
-load.load_data(brazil, "tabela_brazil")
+load.load_data_sqlite(brazil, "tabela_brazil")
 
-
-
-# Matheus Mergulhão, Lucas Henrique , Aline Karen, Renan Humberto

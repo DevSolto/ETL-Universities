@@ -6,7 +6,7 @@ class Load():
     def __ini__(self):
         pass
 
-    def load_data(self, universities, table_name):
+    def load_data_sqlite(self, universities, table_name):
         # Criar o banco e se concectar nele
         con = sqlite3.connect("universidades.db")
         c = con.cursor()
