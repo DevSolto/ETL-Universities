@@ -1,5 +1,9 @@
 import sqlite3
+from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 class Load():
 
@@ -34,3 +38,15 @@ class Load():
 
         con.commit()
         con.close()
+
+    def load_data_atlas(self, universities, db_name=None, collection_name=None):
+        uri = os.getenv("MONGO_URI")
+
+        client = MongoClient(uri)
+        db = client[db_name]
+        collection = db[collection_name]
+
+        if universities:
+            collection.insert_many(universities)
+
+        client.close()
